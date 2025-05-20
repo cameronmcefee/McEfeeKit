@@ -1,0 +1,27 @@
+name: Tag Release
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "Sources/**"
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for proper tag detection
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Run Tag Script
+        run: |
+          bin/tag.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
