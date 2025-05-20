@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Fetch all tags from remote to ensure we have the latest
+git fetch --tags
+
 # Get the current year
 YEAR=$(date +%Y)
 
