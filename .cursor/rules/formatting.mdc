@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Use double spaces for indendation unless doing so is incompatable with the applicable language.
+
+Comment line length is 80
